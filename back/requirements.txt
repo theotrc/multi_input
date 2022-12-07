@@ -1,0 +1,10 @@
+sqlalchemy
+fastapi
+pydantic
+numpy
+keras
+tensorflow-cpu
+uvicorn
+python-multipart
+Pillow
+gunicorn
