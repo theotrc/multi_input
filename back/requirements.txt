@@ -1,10 +1,9 @@
-sqlalchemy
 fastapi
-pydantic
 numpy
 keras
-tensorflow-cpu
+tensorflow
 uvicorn
 python-multipart
-Pillow
 gunicorn
+tensorflow_hub
+Pillow

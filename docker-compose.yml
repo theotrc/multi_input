@@ -3,29 +3,29 @@ networks:
 
 services:
   frontend:
-    build: frontend
+    build: front
     ports:
       - 8501:8501
     networks: 
       AIservice: 
         aliases: 
-          - frontend.docker
+          - front.docker
     depends_on:
-      - backend
+      - back
     volumes:
-        - ./frontend:/app
+        - ./front:/app
         - ./storage:/storage
 
   backend:
-    build: backend
+    build: back
     ports:
       - 8000:8000
     networks: 
       AIservice: 
         aliases: 
-          - backend.docker
+          - back.docker
     volumes:
-      - ./backend:/app
+      - ./back:/app
       - ./storage:/storage
   
   # db:

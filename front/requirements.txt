@@ -1,7 +1,2 @@
 streamlit
-seaborn
-matplotlib
 requests
-tensorflow-cpu
-keras
-numpy
