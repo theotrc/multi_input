@@ -21,24 +21,27 @@ async def root():
 
 
 @app.post("/upload_file")
-async def read_root(file: UploadFile = File(...)):
- 
-    image = file.file._file
+def read_root(description, file: UploadFile = File()):
+    
+    print(description)
 
-    #classes 
-    classes = ['Baby_Care', 'Beauty_And_Personal_Care', 'Computers', 'Home_Decor_&_Festive_Needs', 'Home_Furnishing', 'Kitchen_&_Dining', 'Watches']
+    # image = file.file._file
 
-    #PREDICTION
-    img = tf.keras.preprocessing.image.load_img(image, target_size=(224, 224))
-    img_array = tf.keras.preprocessing.image.img_to_array(img)
-    img_array = tf.expand_dims(img_array, 0) 
+    # #classes 
+    # classes = ['Baby_Care', 'Beauty_And_Personal_Care', 'Computers', 'Home_Decor_&_Festive_Needs', 'Home_Furnishing', 'Kitchen_&_Dining', 'Watches']
 
-    predictions = model.predict(img_array)
+    # #PREDICTION
+    # img = tf.keras.preprocessing.image.load_img(image, target_size=(224, 224))
+    # img_array = tf.keras.preprocessing.image.img_to_array(img)
+    # img_array = tf.expand_dims(img_array, 0) 
 
-    return {"info": f"file '{file.filename}'",
-            "label":classes[np.argmax(predictions)],
-            "confidence": f"{np.round(predictions[0][np.argmax(predictions)]*100, 2)}"
-           }
+    # predictions = model.predict(img_array)
+
+    # return {"info": f"file '{file.filename}'",
+    #         "label":classes[np.argmax(predictions)],
+    #         "confidence": f"{np.round(predictions[0][np.argmax(predictions)]*100, 2)}"
+    #        }
+    return {"description": description, "file":file.filename }
 
 
 if __name__ == "__main__":
